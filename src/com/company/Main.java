@@ -9,11 +9,11 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int n = -1;
-        while (n != 0) {
+        int n = 0;
+        while (n != 2) {
             System.out.println("    ");
             System.out.println("1. Посчитать значение выражения:  ");
-            System.out.println("0. Завершить программу:  ");
+            System.out.println("2. Завершить выполнение программы:  ");
 
             if (scanner.hasNextInt()) {
                 n = scanner.nextInt();
@@ -29,17 +29,16 @@ public class Main {
 
 
                     Scanner in = new Scanner(System.in);
-                    System.out.print("Введите ваше выражение: ");
+                    System.out.print("Пожалуйста, введите выражение: ");
                     String ourString = in.nextLine();
                     try {
                         expText.setStr(ourString);
-                        ExprCorrect = expText.calculate();
-
+                        ExprCorrect = expText.count();
                         if (!ExprCorrect) {
                             System.out.print("Выражение некорректно, повторите попытку");
                         } else {
                             System.out.print(ourString + " = ");
-                            System.out.print(expText.toString());
+                            expText.printExp();
                         }
                     }
                     catch (IndexOutOfBoundsException e)
@@ -50,7 +49,7 @@ public class Main {
                 ;
                 break;
 
-                case 0: break;
+                case 2: break;
                 default:
                     System.out.println("Вы ввели неверный номер операции! ");
                     break;
